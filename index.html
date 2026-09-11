@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="description" content="玉见 JadeYouth 玉石手串 DIY">
+  <title>玉见 JadeYouth · 手串 DIY</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%2328604a' stroke-width='7' stroke-dasharray='7 4'/%3E%3Ctext x='22' y='41' font-size='28' fill='%2328604a'%3EJ%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section id="designer">
+      <header class="head">
+        <div class="brand"><small>JadeYouth · 玉见</small><h1>我的手串设计</h1></div>
+        <button class="size-pill" id="changeSize" aria-label="更换手链尺寸"><b id="sizeName">未选择</b><span id="count">0 / --</span></button>
+      </header>
+      <div class="disc-card">
+        <div class="disc" id="disc"><div class="empty" id="empty"><b>◇</b><span>点击下方图样开始搭配</span></div><div class="centre" id="centre" hidden><span>JadeYouth</span><small>DIY</small></div></div>
+        <button class="delete" id="delete" hidden>删除这个材料</button>
+      </div>
+      <div class="under"><span>已选择：<strong id="chosen">0</strong> 颗</span><span id="remaining">请先选择尺寸</span></div>
+      <div class="tools"><button id="undo">↶ 撤销</button><button id="random">✦ 随机搭配</button><button class="danger" id="clear">⌫ 清空</button></div>
+      <div class="picker-head">选择你喜欢的材料 <span>点按图样可重复添加</span></div>
+      <div class="category"><div class="cat-head"><span>8mm 珠子</span><small>日常搭配</small></div><div class="grid" id="beads8"></div></div>
+      <div class="category special"><div class="cat-head"><span>10mm 珠子</span><small>特色主珠</small></div><div class="grid" id="beads10"></div></div>
+      <div class="category"><div class="cat-head"><span>隔片</span><small>点亮细节</small></div><div class="grid compact" id="spacers"></div></div>
+      <div class="category accessory"><div class="cat-head"><span>配饰</span><small>增添心意</small></div><div class="grid compact" id="accessories"></div></div>
+      <button class="finish" id="finish">完成设计　→</button>
+    </section>
+    <section class="result" id="result">
+      <div class="hero"><small>JadeYouth · 玉见</small><h2>我的手串</h2><span id="resultSize"></span></div>
+      <div class="preview"><div class="disc" id="previewDisc"><div class="centre"><span>JadeYouth</span><small>DIY</small></div></div></div>
+      <div class="total"><strong id="resultCount">0</strong> 件材料</div>
+      <div class="stats"><h3>本次搭配</h3><div id="stats"></div></div>
+      <div class="actions"><button class="outline" id="edit">继续修改</button><button class="primary" id="restart">重新设计</button></div>
+    </section>
+  </main>
+  <div class="size-modal" id="sizeModal" role="dialog" aria-modal="true" aria-labelledby="sizeTitle">
+    <div class="size-panel"><div class="size-logo">J</div><small>第一步</small><h2 id="sizeTitle">选择手链大小</h2><p>根据佩戴需要选择珠子数量</p>
+      <div class="size-options">
+        <button data-size="18" data-name="小"><b>小</b><span>18 个珠子</span><i>适合较细手腕</i></button>
+        <button data-size="20" data-name="中"><b>中</b><span>20 个珠子</span><i>常规推荐</i></button>
+        <button data-size="22" data-name="大"><b>大</b><span>22 个珠子</span><i>适合较宽松佩戴</i></button>
+      </div><button class="cancel-size" id="cancelSize" hidden>保留当前尺寸</button>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
